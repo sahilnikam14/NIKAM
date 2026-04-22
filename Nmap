@@ -1,0 +1,7 @@
+
+#!/bin/bash
+
+echo "==== MR SAHILNIKAM.O7   ===="
+read -p "Enter target: " target
+
+nmap $target
