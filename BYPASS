@@ -1,0 +1,41 @@
+import os
+import subprocess
+
+def banner():
+    print("==============================")
+    print(" NIKAM PASSWORD CRACKER 🔐")
+    print("==============================")
+
+def menu():
+    print("\n1. Crack hash (wordlist)")
+    print("2. Show supported formats")
+    print("3. Exit")
+
+while True:
+    os.system("clear")
+    banner()
+    menu()
+
+    choice = input("\nSelect: ")
+
+    if choice == "1":
+        hash_file = input("Enter hash file: ")
+        wordlist = input("Enter wordlist file: ")
+
+        print("\nRunning audit...\n")
+
+        # John the Ripper run (safe lab use)
+        subprocess.run(["john", "--wordlist=" + wordlist, hash_file])
+
+        print("\nDone. Check result with: john --show")
+        input("\nPress Enter...")
+
+    elif choice == "2":
+        subprocess.run(["john", "--list=formats"])
+        input("\nPress Enter...")
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid choice")
